@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Message;
-use App\Models\Contact;
+
 use App\Http\Requests\StoreUserMessageRequest;
 use Illuminate\Http\Request;
 
@@ -11,8 +10,8 @@ class MessageController extends Controller
 {
     public function index()
     {
-        $contacts = Contact::all();
-        return view('contact',compact('contacts'));
+        
+        return view('contact');
 
     }
 

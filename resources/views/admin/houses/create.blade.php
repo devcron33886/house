@@ -8,6 +8,9 @@
 					<div class="card-body">
 						<form method="POST" action="{{ route("admin.houses.store") }}" enctype="multipart/form-data">
 							@csrf
+
+							@livewire('house-address')
+
 							<div class="row">
 								<div class="form-group col-md-6">
 									<label class="required" for="categories">{{ trans('cruds.house.fields.category') }}</label>

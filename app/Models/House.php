@@ -48,7 +48,7 @@ class House extends Model implements HasMedia
         '1' => 'Monthly',
         '2' => 'Weekly',
         '3' => 'Daily',
-        
+
     ];
 
     protected $fillable = [
@@ -69,6 +69,7 @@ class House extends Model implements HasMedia
         'created_at',
         'updated_at',
         'deleted_at',
+        'cell_id',
     ];
 
     protected function serializeDate(DateTimeInterface $date)
@@ -122,6 +123,10 @@ class House extends Model implements HasMedia
     {
         return $this->belongsTo(User::class);
     }
+    public function cell(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Cell::class,'cell_id');
+    }
     public function scopeSearchResults($query)
     {
         return $query->where('house_status', 1)
@@ -139,5 +144,15 @@ class House extends Model implements HasMedia
                     $query->where('id', request()->input('category'));
                 });
             });
+    }
+    public function scopeSearch($query,$term)
+    {
+        $term="%$term%";
+        $query->where(function ($query) use ($term){
+            $query->where('title', 'LIKE', "%$term%")
+                ->orWhere('description', 'LIKE', "%$term%")
+                ->orWhere('address','LIKE',"%$term%")
+                ->orWhere('price', 'LIKE', "%$term%");
+        });
     }
 }

@@ -14,7 +14,13 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::factory()->times(20)->create();
+        $categories = [
+            [ 'name'=>'Living House'],
+            ['name' => 'Apartment'],
+            ['name' => 'Commercial House'],
+        ];
+
+        Category::insert($categories);
 
     }
 }

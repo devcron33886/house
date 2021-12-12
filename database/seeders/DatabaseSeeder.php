@@ -16,6 +16,9 @@ class DatabaseSeeder extends Seeder
             RoleUserTableSeeder::class,
             DaysTableSeeder::class,
             CategorySeeder::class,
+            DistrictSeeder::class,
+            SectorSeeder::class,
+            CellSeeder::class,
 
         ]);
     }

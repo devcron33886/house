@@ -52,11 +52,8 @@ class HomeController extends Controller
 
     public function listing()
     {
-        $houses = House::with(['categories','media','created_by'])
-            ->where('house_status',1)
-            ->orderByDesc('created_at')
-            ->get();
-        return view('list',compact('houses'));
+
+        return view('list');
     }
 
     public function owners()
@@ -68,5 +65,5 @@ class HomeController extends Controller
         return view('owners',compact('owners'));
 
     }
-    
+
 }

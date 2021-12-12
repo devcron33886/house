@@ -63,6 +63,12 @@ class StoreHouseRequest extends FormRequest
             'description'  => [
                 'required',
             ],
+            [
+                'cell_id' => [
+                    'required','integer'
+                ]
+            ]
+
         ];
     }
 }
