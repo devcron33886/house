@@ -4,7 +4,7 @@
             <label for="district" class="required">{{ __('District') }}</label>
 
 
-            <select wire:model="selectedDistrict" class="form-control">
+            <select wire:model="selectedDistrict" class="form-control" name="district_id">
                 <option value="" selected>Choose District</option>
                 @foreach($districts as $district)
                     <option value="{{ $district->id }}">{{ $district->name }}</option>
@@ -18,7 +18,7 @@
                 <label for="sector" class="required">{{ __('Sector') }}</label>
 
 
-                <select wire:model="selectedSector" class="form-control">
+                <select wire:model="selectedSector" class="form-control" name="sector_id">
                     <option value="" selected>Choose Sector</option>
                     @foreach($sectors as $sector)
                         <option value="{{ $sector->id }}">{{ $sector->name }}</option>

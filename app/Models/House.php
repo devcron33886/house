@@ -69,6 +69,8 @@ class House extends Model implements HasMedia
         'created_at',
         'updated_at',
         'deleted_at',
+        'district_id',
+        'sector_id',
         'cell_id',
     ];
 
@@ -126,6 +128,15 @@ class House extends Model implements HasMedia
     public function cell(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Cell::class,'cell_id');
+    }
+    public function district(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(District::class,'district_id');
+    }
+
+    public function sector(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Sector::class, 'sector');
     }
     public function scopeSearchResults($query)
     {

@@ -20,54 +20,61 @@ class StoreHouseRequest extends FormRequest
             'categories.*' => [
                 'integer',
             ],
-            'categories'   => [
+            'categories' => [
                 'required',
                 'array',
             ],
-            'title'        => [
+            'title' => [
                 'string',
                 'required',
             ],
-            'price'        => [
+            'price' => [
                 'required',
             ],
             'price_status' => [
                 'required',
             ],
-            'currency'     => [
+            'currency' => [
                 'required',
             ],
             'payment_time' => [
                 'required',
             ],
-            'bedrooms'     => [
+            'bedrooms' => [
                 'required',
                 'integer',
                 'min:-2147483648',
                 'max:2147483647',
             ],
-            'bathrooms'    => [
+            'bathrooms' => [
                 'required',
                 'integer',
                 'min:-2147483648',
                 'max:2147483647',
             ],
-            'floors'       => [
+            'floors' => [
                 'nullable',
                 'integer',
                 'min:-2147483648',
                 'max:2147483647',
             ],
-            'cover_photo' =>['required'],
-            'photos.*'     => ['required',],
-            'description'  => [
+            'cover_photo' => ['required'],
+            'photos.*' => ['required',],
+            'description' => [
                 'required',
             ],
-            [
-                'cell_id' => [
-                    'required','integer'
-                ]
-            ]
+
+            'district_id' => [
+                'required', 'integer'
+            ],
+
+            'sector_id' => [
+                'required', 'integer'
+            ],
+            'cell_id' => [
+                'required', 'integer'
+            ],
+
 
         ];
     }

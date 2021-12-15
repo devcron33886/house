@@ -3,24 +3,17 @@
     <section class="intro-single">
         <div class="container">
             <div class="row">
-                <select wire:model="byCategory" class="form-control col-md-2">
-                    <option value="" selected>Choose Category</option>
-
-                    @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach
-                </select>
-                <div class="col-md-2">
+                <div class="col-md-2 mt-2">
                     <input type="text" class="form-control" wire:model.debounce.350ms="search" placeholder="search">
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 mt-2">
                     <select wire:model="perPage" class="form-control">
                         <option value="12">12</option>
                         <option value="24">24</option>
                         <option value="36">36</option>
                     </select>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 mt-2">
                     <select wire:model="selectedDistrict" class="form-control">
                         <option value="" selected>Choose District</option>
                         @foreach($districts as $district)
@@ -28,7 +21,7 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 mt-2">
                     @if (!is_null($selectedDistrict))
                         <select wire:model="selectedSector" class="form-control">
                             <option value="" selected>Choose Sector</option>
@@ -38,7 +31,7 @@
                         </select>
                     @endif
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 mt-2">
                     @if (!is_null($selectedSector))
                         <select wire:model="selectedCell" class="form-control">
                             <option value="" selected>Choose Cell</option>
